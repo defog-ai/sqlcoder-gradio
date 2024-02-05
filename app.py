@@ -32,8 +32,8 @@ Given the database schema, here is the SQL query that [QUESTION]{question}[/QUES
 gradio_app = gr.Interface(
     fn=predict,
     inputs=[
-        gradio.Textbox(lines=2, value="What are our top 3 products by revenue in the New York region?", label="question"),
-        gradio.Textbox(lines=20, value="""CREATE TABLE products (
+        gr.Textbox(lines=2, value="What are our top 3 products by revenue in the New York region?", label="question"),
+        gr.Textbox(lines=20, value="""CREATE TABLE products (
   product_id INTEGER PRIMARY KEY, -- Unique ID for each product
   name VARCHAR(50), -- Name of the product
   price DECIMAL(10,2), -- Price of each unit of the product
