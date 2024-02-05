@@ -1,4 +1,5 @@
 import gradio as gr
+import torch
 from transformers import AutoTokenizer, AutoModelForCausalLM, pipeline
 
 model = AutoModelForCausalLM.from_pretrained("defog/sqlcoder-7b-2", torch_dtype = torch.bfloat16)
