@@ -72,4 +72,4 @@ CREATE TABLE product_suppliers (
 )
 
 if __name__ == "__main__":
-    gradio_app.launch()
+    gradio_app.launch(share=True)
