@@ -18,7 +18,7 @@ Given the database schema, here is the SQL query that [QUESTION]{question}[/QUES
 [SQL]
 """
     predictions = pipeline(
-        row["prompt"],
+        prompt,
         max_new_tokens=300,
         do_sample=False,
         num_beams=4,
