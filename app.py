@@ -3,7 +3,11 @@ import torch
 from transformers import AutoTokenizer, AutoModelForCausalLM, pipeline
 
 model_name = "defog/sqlcoder-7b-instruct-ds7"
-model = AutoModelForCausalLM.from_pretrained(model_name, torch_dtype = torch.float16)
+model = AutoModelForCausalLM.from_pretrained(
+    model_name,
+    device_map="auto",
+    torch_dtype=torch.float16
+)
 tokenizer = AutoTokenizer.from_pretrained(model_name)
 
 pipeline = pipeline(task="text-generation", model=model, tokenizer=tokenizer)
