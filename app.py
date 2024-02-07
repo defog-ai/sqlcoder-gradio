@@ -1,6 +1,7 @@
 import gradio as gr
 import torch
 from transformers import AutoTokenizer, AutoModelForCausalLM, pipeline
+import sqlparse
 
 model_name = "defog/sqlcoder-7b-2"
 model = AutoModelForCausalLM.from_pretrained(
@@ -36,7 +37,7 @@ Given the database schema, here is the SQL query that [QUESTION]{question}[/QUES
         eos_token_id=tokenizer.eos_token_id,
         pad_token_id=tokenizer.eos_token_id,
     )[0]["generated_text"].split("```")[0].split(";")[0].strip()+ ";"
-    return predictions
+    return sqlparse.format(predictions, keyword_case="UPPER", reindent=True)
 
 gradio_app = gr.Interface(
     fn=predict,
