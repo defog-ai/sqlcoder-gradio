@@ -15,6 +15,10 @@ pipeline = pipeline(task="text-generation", model=model, tokenizer=tokenizer)
 def predict(question, ddl):
     prompt = f"""### Task
 Generate a SQL query to answer [QUESTION]{question}[/QUESTION]
+
+### Instructions
+- If you cannot answer the question with the available database schema, return 'I do not know'
+
 ### Database Schema
 The query will run on a database with the following schema:
 {ddl}
