@@ -1,3 +1,4 @@
 gradio
 torch
 transformers
+sqlparse
