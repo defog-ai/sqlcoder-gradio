@@ -37,12 +37,12 @@ Given the database schema, here is the SQL query that [QUESTION]{question}[/QUES
         eos_token_id=tokenizer.eos_token_id,
         pad_token_id=tokenizer.eos_token_id,
     )[0]["generated_text"].split("```")[0].split(";")[0].strip()+ ";"
-    return sqlparse.format(predictions, keyword_case="UPPER", reindent=True)
+    return sqlparse.format(predictions, keyword_case="upper", reindent=True)
 
 gradio_app = gr.Interface(
     fn=predict,
     inputs=[
-        gr.Textbox(lines=2, value="What are our top 3 products by revenue in the New York region?", label="question"),
+        gr.Textbox(lines=2, value="What are our top 3 products by sales in the New York region?", label="question"),
         gr.Textbox(lines=20, value="""CREATE TABLE products (
   product_id INTEGER PRIMARY KEY, -- Unique ID for each product
   name VARCHAR(50), -- Name of the product
