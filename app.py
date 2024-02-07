@@ -2,7 +2,7 @@ import gradio as gr
 import torch
 from transformers import AutoTokenizer, AutoModelForCausalLM, pipeline
 
-model_name = "defog/sqlcoder-7b-instruct-ds7"
+model_name = "defog/sqlcoder-7b-2"
 model = AutoModelForCausalLM.from_pretrained(
     model_name,
     device_map="auto",
